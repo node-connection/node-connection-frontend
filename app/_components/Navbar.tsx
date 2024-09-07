@@ -40,18 +40,30 @@ const Navbar = () => {
         >
           node-connection
         </Link>
-        <Link
-          className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
-          href="/issue"
-        >
-          발급하기
-        </Link>
-        <Link
-          className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
-          href="/history"
-        >
-          발급내역 보기
-        </Link>
+        {session?.organization === "ViewerMSP" && (
+          <>
+            <Link
+              className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              href="/issue"
+            >
+              발급하기
+            </Link>
+            <Link
+              className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              href="/history"
+            >
+              발급내역 보기
+            </Link>
+          </>
+        )}
+        {session?.organization === "RegistryMSP" && (
+          <Link
+            className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+            href="/registration"
+          >
+            등기 등록하기
+          </Link>
+        )}
         <button
           className="my-auto ml-2 rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition-all duration-300 hover:bg-blue-600 md:ml-4 md:text-base"
           onClick={handleAuth}
