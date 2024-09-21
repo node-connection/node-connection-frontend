@@ -1,4 +1,4 @@
-import LoginSection from "./_components/LoginSection";
+import JoinSection from "./_components/JoinSection";
 
 const LoginPage = () => {
   return (
@@ -9,7 +9,7 @@ const LoginPage = () => {
           <div className="mx-auto text-zinc-700">
             블록체인 기반 부동산 등기사항증명서 발급 시스템
           </div>
-          <LoginSection />
+          <JoinSection />
         </div>
       </div>
     </main>
