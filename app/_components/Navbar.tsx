@@ -2,16 +2,33 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const router = useRouter();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    console.log(session);
+  }, [session]);
 
   const handleLogin = () => {
     router.push("/login");
   };
 
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
+    router.refresh();
+    router.push("/");
+  };
+
   const handleAuth = () => {
-    handleLogin();
+    if (session) {
+      handleLogout();
+    } else {
+      handleLogin();
+    }
   };
 
   return (
@@ -23,24 +40,36 @@ const Navbar = () => {
         >
           node-connection
         </Link>
-        <Link
-          className="my-auto px-1 text-sm text-[#4E5968] md:px-4 md:text-base"
-          href="/issue"
-        >
-          발급하기
-        </Link>
-        <Link
-          className="my-auto px-1 text-sm text-[#4E5968] md:px-4 md:text-base"
-          href="/history"
-        >
-          발급내역 보기
-        </Link>
+        {session?.organization === "ViewerMSP" && (
+          <>
+            <Link
+              className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              href="/issue"
+            >
+              발급하기
+            </Link>
+            <Link
+              className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              href="/history"
+            >
+              발급내역 보기
+            </Link>
+          </>
+        )}
+        {session?.organization === "RegistryMSP" && (
+          <Link
+            className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+            href="/registration"
+          >
+            등기 등록하기
+          </Link>
+        )}
         <button
-          className="my-auto ml-2 rounded-lg bg-blue-500 px-3 py-2 text-sm text-white md:ml-4 md:text-base"
+          className="my-auto ml-2 rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition-all duration-300 hover:bg-blue-600 md:ml-4 md:text-base"
           onClick={handleAuth}
           type="button"
         >
-          로그아웃
+          {session ? "로그아웃" : "로그인"}
         </button>
       </div>
     </nav>

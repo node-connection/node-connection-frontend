@@ -1,4 +1,4 @@
-import Navbar from "../_components/Navbar";
+import Navbar from "@/app/_components/Navbar";
 
 const RegistrationPage = () => {
   return (

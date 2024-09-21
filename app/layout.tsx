@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { gowunBatang, spaceMono } from "./fonts";
+import NextAuthSessionProvider from "./_providers/NextAuthSessionProvider";
 
 export const metadata: Metadata = {
   title: "node-connection",
@@ -15,7 +16,7 @@ const RootLayout = ({
   return (
     <html lang="ko" className={`${spaceMono.variable} ${gowunBatang.variable}`}>
       <body className="font-spaceMono box-border h-full w-full bg-white">
-        {children}
+        <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
       </body>
     </html>
   );
