@@ -4,7 +4,7 @@ export interface ApiResponse<T> {
   total?: number;
   offset?: null | number;
   limit?: number;
-  error?: string;
+  error?: { code: number; message: string } | null;
 }
 
 type ApiMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
@@ -50,16 +50,17 @@ const callApi = async <T>({
 
     const response = await fetch(url, fetchOptions);
 
-    if (!response.ok) {
-      throw new Error(
-        `HTTP response was not OK: ${response.status} ${response.statusText}`,
-      );
-    }
+    // if (!response.ok) {
+    //   console.error(await response.json());
+    //   throw new Error(
+    //     `HTTP response was not OK: ${response.status} ${response.statusText}`,
+    //   );
+    // }
 
     const responseData: ApiResponse<T> = await response.json();
     return responseData;
   } catch (error) {
-    throw new Error(`API call failed: ${error}`);
+    throw new Error(`API call failed | ${error}`);
   }
 };
 
