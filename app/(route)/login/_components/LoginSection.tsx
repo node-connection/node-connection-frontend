@@ -1,6 +1,8 @@
 "use client";
 
 import useInput from "@/app/_hooks/useInput";
+import userLogin from "@/app/_services/userLogin";
+import { errorToast } from "@/app/_utils/notifications";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -23,11 +25,6 @@ const LoginSection = () => {
   };
 
   const handleLogin = async () => {
-    // TODO: Add toast
-    if (!id.value || !password.value) {
-      return;
-    }
-
     await signIn("credentials", {
       organization,
       id: id.value,
@@ -35,15 +32,15 @@ const LoginSection = () => {
       redirect: false,
     });
 
-    // TODO: Add userLogin
-    // const res = await userLogin();
-    // if (res) {
-    router.push("/");
-    router.refresh();
-    // } else {
-    // toast.error("로그인에 실패하였습니다.");
-    // await signOut({ redirect: false });
-    // }
+    const res = await userLogin();
+
+    if (res.success) {
+      router.push("/");
+      router.refresh();
+    } else {
+      errorToast(res.error?.message || "알 수 없는 오류가 발생하였습니다.");
+      await signOut({ redirect: false });
+    }
   };
 
   const handleEnter = (e: React.KeyboardEvent) => {
@@ -54,7 +51,7 @@ const LoginSection = () => {
 
   return (
     <div className="my-4 flex flex-col">
-      <div className="mb-1 border-b border-[#E5E7EB] pb-3">
+      <div className="mb-1 border-b border-zinc-200 pb-3">
         <div className="flex gap-2">
           <button
             className={`mt-2 w-full rounded-lg py-3 transition-all duration-300 ${organization === "ViewerMSP" ? "cursor-default border border-blue-500 bg-blue-500 text-white" : "border border-zinc-200 bg-white text-black"}`}
@@ -89,7 +86,8 @@ const LoginSection = () => {
         type="password"
       />
       <button
-        className="mt-3 w-full rounded-lg bg-blue-500 py-3 text-white transition-all duration-300 hover:bg-blue-600"
+        className={`mt-3 w-full rounded-lg py-3 text-white transition-all duration-300 ${!id.value || !password.value ? "cursor-not-allowed bg-zinc-400" : "bg-blue-500 hover:bg-blue-600"}`}
+        disabled={!id.value || !password.value}
         onClick={handleLogin}
         type="button"
       >
