@@ -1,6 +1,13 @@
+import getSessionToken from "@/app/_utils/getSessionToken";
+import { redirect } from "next/navigation";
 import LoginSection from "./_components/LoginSection";
 
-const LoginPage = () => {
+const LoginPage = async () => {
+  const sessionToken = await getSessionToken();
+  if (sessionToken) {
+    redirect("/");
+  }
+
   return (
     <main className="flex h-screen w-full items-center justify-center">
       <div className="fixed left-1/2 top-1/2 flex w-full max-w-[500px] -translate-x-1/2 -translate-y-1/2 p-6">
