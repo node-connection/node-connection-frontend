@@ -26,7 +26,7 @@ const userRegister = async ({
       username,
       email,
       phoneNumber,
-      courtCode: courtCode || "",
+      courtCode: courtCode || null,
     },
   });
 
