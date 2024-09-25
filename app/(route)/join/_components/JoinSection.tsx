@@ -93,7 +93,7 @@ const JoinSection = () => {
       username: username.value,
       email: email.value,
       phoneNumber: phoneNumber.value,
-      courtCode: courtCode.value,
+      courtCode: organization === "RegistryMSP" ? courtCode.value : undefined,
     });
 
     if (res.success) {
