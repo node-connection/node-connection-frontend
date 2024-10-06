@@ -401,7 +401,7 @@ const RegistrationAddSection = () => {
       </div>
       <div className="mt-2 flex w-full flex-col">
         <h3 className="text-lg font-bold">표제부 ( 1동의 건물의 표시 )</h3>
-        <div className="w-full whitespace-pre-wrap break-words text-center">
+        <div className="w-full whitespace-pre-wrap break-all text-center">
           <div className="grid grid-cols-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-10">
             <div>표시번호</div>
             <div className="lg:col-span-2">접수</div>
@@ -488,7 +488,7 @@ const RegistrationAddSection = () => {
         <h4 className="text-base font-bold">
           표제부 ( 1동의 건물의 표시 ) - ( 대지권의 목적인 토지의 표시 )
         </h4>
-        <div className="w-full whitespace-pre-wrap break-words text-center">
+        <div className="w-full whitespace-pre-wrap break-all text-center">
           <div className="grid grid-cols-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-10">
             <div>표시번호</div>
             <div className="lg:col-span-2">소재지번</div>
@@ -573,7 +573,7 @@ const RegistrationAddSection = () => {
       </div>
       <div className="mt-2 flex w-full flex-col">
         <h3 className="text-lg font-bold">표제부 ( 전유부분의 건물의 표시 )</h3>
-        <div className="w-full whitespace-pre-wrap break-words text-center">
+        <div className="w-full whitespace-pre-wrap break-all text-center">
           <div className="grid grid-cols-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-10">
             <div>표시번호</div>
             <div className="lg:col-span-2">접수</div>
@@ -660,7 +660,7 @@ const RegistrationAddSection = () => {
         <h4 className="text-base font-bold">
           표제부 ( 전유부분의 건물의 표시 ) - ( 대지권의 표시 )
         </h4>
-        <div className="w-full whitespace-pre-wrap break-words text-center">
+        <div className="w-full whitespace-pre-wrap break-all text-center">
           <div className="grid grid-cols-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-8">
             <div>표시번호</div>
             <div className="lg:col-span-2">대지권종류</div>
@@ -680,7 +680,7 @@ const RegistrationAddSection = () => {
               <div className="flex">
                 <button
                   className="m-auto w-full max-w-24 rounded-lg bg-red-500 py-2 text-white transition-all duration-300 hover:bg-red-600"
-                  onClick={() => handleBuildingPartDescriptionDelete(index)}
+                  onClick={() => handleLandRightDescriptionDelete(index)}
                   type="button"
                 >
                   삭제
@@ -735,7 +735,7 @@ const RegistrationAddSection = () => {
       </div>
       <div className="mt-2 flex w-full flex-col">
         <h3 className="text-lg font-bold">갑구 ( 소유권에 관한 사항 )</h3>
-        <div className="w-full whitespace-pre-wrap break-words text-center">
+        <div className="w-full whitespace-pre-wrap break-all text-center">
           <div className="grid grid-cols-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-10">
             <div>순위번호</div>
             <div className="lg:col-span-2">등기목적</div>
@@ -824,7 +824,7 @@ const RegistrationAddSection = () => {
         <h3 className="text-lg font-bold">
           을구 ( 소유권 이외의 권리에 관한 사항 )
         </h3>
-        <div className="w-full whitespace-pre-wrap break-words text-center">
+        <div className="w-full whitespace-pre-wrap break-all text-center">
           <div className="grid grid-cols-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-10">
             <div>순위번호</div>
             <div className="lg:col-span-2">등기목적</div>
