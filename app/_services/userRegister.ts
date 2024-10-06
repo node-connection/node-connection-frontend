@@ -3,7 +3,7 @@
 import callApi from "../_utils/callApi";
 import getSessionToken from "../_utils/getSessionToken";
 
-type UserLoginProps = {
+type UserRegisterProps = {
   username: string;
   email: string;
   phoneNumber: string;
@@ -15,7 +15,7 @@ const userRegister = async ({
   email,
   phoneNumber,
   courtCode,
-}: UserLoginProps) => {
+}: UserRegisterProps) => {
   const sessionToken = await getSessionToken();
 
   const res = await callApi({
