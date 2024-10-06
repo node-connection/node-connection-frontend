@@ -36,15 +36,6 @@ const courtRegistry = async ({
 }: courtRegistryProps) => {
   const sessionToken = await getSessionToken();
 
-  console.log({
-    address,
-    detailAddress,
-    titleSection,
-    exclusivePartDescription,
-    firstSection,
-    secondSection,
-  });
-
   const res = await callApi({
     endpoint: "/court/registry",
     method: "POST",
