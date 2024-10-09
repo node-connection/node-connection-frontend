@@ -89,18 +89,20 @@ const VerifyHashSection = ({
                         hashedItem.displayNumber === item.displayNumber,
                     );
 
-                  <div
-                    key={item.displayNumber}
-                    className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100"}`}
-                  >
-                    <div className="">{item.displayNumber}</div>
-                    <div className="lg:col-span-2">{item.locationNumber}</div>
-                    <div className="lg:col-span-2">{item.landType}</div>
-                    <div className="lg:col-span-2">{item.area}</div>
-                    <div className="lg:col-span-2">
-                      {item.registrationCause}
+                  return (
+                    <div
+                      key={item.displayNumber}
+                      className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100/80"}`}
+                    >
+                      <div className="">{item.displayNumber}</div>
+                      <div className="lg:col-span-2">{item.locationNumber}</div>
+                      <div className="lg:col-span-2">{item.landType}</div>
+                      <div className="lg:col-span-2">{item.area}</div>
+                      <div className="lg:col-span-2">
+                        {item.registrationCause}
+                      </div>
                     </div>
-                  </div>;
+                  );
                 },
               )}
             </>
@@ -132,18 +134,22 @@ const VerifyHashSection = ({
                         hashedItem.displayNumber === item.displayNumber,
                     );
 
-                  <div
-                    key={item.displayNumber}
-                    className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100"}`}
-                  >
-                    <div className="">{item.displayNumber}</div>
-                    <div className="lg:col-span-2">{item.receiptDate}</div>
-                    <div className="lg:col-span-2">{item.partNumber}</div>
-                    <div className="lg:col-span-2">{item.buildingDetails}</div>
-                    <div className="lg:col-span-2">
-                      {item.registrationCause}
+                  return (
+                    <div
+                      key={item.displayNumber}
+                      className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100/80"}`}
+                    >
+                      <div className="">{item.displayNumber}</div>
+                      <div className="lg:col-span-2">{item.receiptDate}</div>
+                      <div className="lg:col-span-2">{item.partNumber}</div>
+                      <div className="lg:col-span-2">
+                        {item.buildingDetails}
+                      </div>
+                      <div className="lg:col-span-2">
+                        {item.registrationCause}
+                      </div>
                     </div>
-                  </div>;
+                  );
                 },
               )}
             </>
@@ -174,17 +180,19 @@ const VerifyHashSection = ({
                         hashedItem.displayNumber === item.displayNumber,
                     );
 
-                  <div
-                    key={item.displayNumber}
-                    className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-7 ${isNewItem && "bg-green-100"}`}
-                  >
-                    <div className="">{item.displayNumber}</div>
-                    <div className="lg:col-span-2">{item.landRightType}</div>
-                    <div className="lg:col-span-2">{item.landRightRatio}</div>
-                    <div className="lg:col-span-2">
-                      {item.registrationCause}
+                  return (
+                    <div
+                      key={item.displayNumber}
+                      className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-7 ${isNewItem && "bg-green-100/80"}`}
+                    >
+                      <div className="">{item.displayNumber}</div>
+                      <div className="lg:col-span-2">{item.landRightType}</div>
+                      <div className="lg:col-span-2">{item.landRightRatio}</div>
+                      <div className="lg:col-span-2">
+                        {item.registrationCause}
+                      </div>
                     </div>
-                  </div>;
+                  );
                 },
               )}
             </>
@@ -214,22 +222,24 @@ const VerifyHashSection = ({
                       (hashedItem) => hashedItem.rankNumber === item.rankNumber,
                     );
 
-                  <div
-                    key={item.rankNumber}
-                    className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100"}`}
-                  >
-                    <div className="">{item.rankNumber}</div>
-                    <div className="lg:col-span-2">
-                      {item.registrationPurpose}
+                  return (
+                    <div
+                      key={item.rankNumber}
+                      className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100/80"}`}
+                    >
+                      <div className="">{item.rankNumber}</div>
+                      <div className="lg:col-span-2">
+                        {item.registrationPurpose}
+                      </div>
+                      <div className="lg:col-span-2">{item.receiptDate}</div>
+                      <div className="lg:col-span-2">
+                        {item.registrationCause}
+                      </div>
+                      <div className="lg:col-span-2">
+                        {item.holderAndAdditionalInfo}
+                      </div>
                     </div>
-                    <div className="lg:col-span-2">{item.receiptDate}</div>
-                    <div className="lg:col-span-2">
-                      {item.registrationCause}
-                    </div>
-                    <div className="lg:col-span-2">
-                      {item.holderAndAdditionalInfo}
-                    </div>
-                  </div>;
+                  );
                 },
               )}
             </>
@@ -262,7 +272,7 @@ const VerifyHashSection = ({
                   return (
                     <div
                       key={item.rankNumber}
-                      className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100"}`}
+                      className={`grid grid-cols-2 gap-2 border-b border-zinc-200 py-2 sm:grid-cols-3 lg:grid-cols-9 ${isNewItem && "bg-green-100/80"}`}
                     >
                       <div className="">{item.rankNumber}</div>
                       <div className="lg:col-span-2">
