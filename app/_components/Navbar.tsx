@@ -43,29 +43,43 @@ const Navbar = () => {
         {session?.organization === "ViewerMSP" && (
           <>
             <Link
-              className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              className="my-auto rounded-lg px-1.5 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
               href="/issue"
             >
-              발급하기
+              발급
             </Link>
             <Link
-              className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              className="my-auto rounded-lg px-1.5 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
               href="/history"
             >
-              발급내역 보기
+              발급내역
+            </Link>
+            <Link
+              className="my-auto rounded-lg px-1.5 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              href="/verify"
+            >
+              등기 검증
             </Link>
           </>
         )}
         {session?.organization === "RegistryMSP" && (
-          <Link
-            className="my-auto rounded-lg px-1 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
-            href="/registration"
-          >
-            등기 등록하기
-          </Link>
+          <>
+            <Link
+              className="my-auto rounded-lg px-1.5 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              href="/registration"
+            >
+              등기 관리
+            </Link>
+            <Link
+              className="my-auto rounded-lg px-1.5 py-2 text-sm text-[#4E5968] transition-all duration-300 hover:bg-zinc-200 md:px-4 md:text-base"
+              href="/verify"
+            >
+              등기 검증
+            </Link>
+          </>
         )}
         <button
-          className="my-auto ml-2 rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition-all duration-300 hover:bg-blue-600 md:ml-4 md:text-base"
+          className="my-auto ml-1.5 rounded-lg bg-blue-500 px-1.5 py-2 text-sm text-white transition-all duration-300 hover:bg-blue-600 md:ml-4 md:px-3 md:text-base"
           onClick={handleAuth}
           type="button"
         >
