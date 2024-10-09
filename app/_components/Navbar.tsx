@@ -9,10 +9,6 @@ const Navbar = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  useEffect(() => {
-    console.log(session);
-  }, [session]);
-
   const handleLogin = () => {
     router.push("/login");
   };
