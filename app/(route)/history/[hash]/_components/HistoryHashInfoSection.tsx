@@ -15,8 +15,7 @@ const HistoryHashInfoSection = ({
   useMemo(() => {
     if (typeof window !== "undefined") {
       setQRValue(
-        window.location.origin +
-          `/verify/${hash}?address=${registryIssuance.hashedDocument.address}`,
+        `${window.location.origin}/verify/${hash}?address=${registryIssuance.hashedDocument.address}`,
       );
     }
   }, []);
