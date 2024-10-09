@@ -44,3 +44,19 @@ export type SecondSectionType = {
   registrationCause: string;
   holderAndAdditionalInfo: string;
 };
+
+export type RegistryResponseType = {
+  address: string;
+  detailAddress: string;
+  id: string;
+  titleSection?: {
+    buildingDescription: BuildingDescriptionType[];
+    landDescription: LandDescriptionType[];
+  };
+  exclusivePartDescription?: {
+    buildingPartDescription: BuildingPartDescriptionType[];
+    landRightDescription: LandRightDescriptionType[];
+  };
+  firstSection?: FirstSectionType[];
+  secondSection?: SecondSectionType[];
+}[];
