@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+
 "use client";
 
 import { RegistryIssuanceResponseType } from "@/app/_types";
