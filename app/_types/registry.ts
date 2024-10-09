@@ -60,3 +60,40 @@ export type RegistryResponseType = {
   firstSection?: FirstSectionType[];
   secondSection?: SecondSectionType[];
 }[];
+
+export type RegistryIssuanceResponseType = {
+  txId: string;
+  issuer: string;
+  issuanceAt: string;
+  expiredAt: string;
+  hashedDocument: {
+    address: string;
+    detailAddress: string;
+    id: string;
+    titleSection?: {
+      buildingDescription: BuildingDescriptionType[];
+      landDescription: LandDescriptionType[];
+    };
+    exclusivePartDescription?: {
+      buildingPartDescription: BuildingPartDescriptionType[];
+      landRightDescription: LandRightDescriptionType[];
+    };
+    firstSection?: FirstSectionType[];
+    secondSection?: SecondSectionType[];
+  };
+  latestDocument: {
+    address: string;
+    detailAddress: string;
+    id: string;
+    titleSection?: {
+      buildingDescription: BuildingDescriptionType[];
+      landDescription: LandDescriptionType[];
+    };
+    exclusivePartDescription?: {
+      buildingPartDescription: BuildingPartDescriptionType[];
+      landRightDescription: LandRightDescriptionType[];
+    };
+    firstSection?: FirstSectionType[];
+    secondSection?: SecondSectionType[];
+  };
+};
