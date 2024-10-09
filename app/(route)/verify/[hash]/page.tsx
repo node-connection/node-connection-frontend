@@ -42,9 +42,9 @@ const VerifyHashPage = async ({
             <h1 className="text-2xl font-bold md:text-3xl">
               등기사항전부증명서(말소사항 포함)
             </h1>
-            <h2 className="mt-3 flex text-base text-[#4E5968] md:text-lg">
-              <p className="bg-green-100/80 font-bold">연두색 배경</p>으로
-              표시된 항목은 발급 당시에는 없었던 새로운 항목입니다. 검증에
+            <h2 className="mt-3 text-base text-[#4E5968] md:text-lg">
+              <b className="bg-green-100/80 font-bold">연두색 배경</b>
+              으로 표시된 항목은 발급 당시에는 없었던 새로운 항목입니다. 검증에
               활용하시기 바랍니다.
             </h2>
           </div>
