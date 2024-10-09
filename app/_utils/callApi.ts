@@ -1,6 +1,6 @@
 export interface ApiResponse<T> {
   success: boolean;
-  data: T | null;
+  contents: T | null;
   total?: number;
   offset?: null | number;
   limit?: number;
