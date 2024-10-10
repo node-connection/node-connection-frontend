@@ -4,6 +4,7 @@ import useInput from "@/app/_hooks/useInput";
 import registryGet from "@/app/_services/registryGet";
 import { issueSearchResultAtom } from "@/app/_store";
 import { RegistryResponseType } from "@/app/_types";
+import { errorToast } from "@/app/_utils/notifications";
 import { useSetAtom } from "jotai";
 import { useState } from "react";
 import { useDaumPostcodePopup, Address } from "react-daum-postcode";
@@ -44,6 +45,15 @@ const IssueSection = () => {
       address: baseAddress,
       detailAddress: detailAddress.value,
     });
+
+    if (res.error) {
+      if (res.error?.message === "JSON 파싱 에러 발생") {
+        setIssueSearchResult(null);
+        return;
+      }
+
+      errorToast(res.error.message || "에러가 발생했습니다.");
+    }
 
     const data = res.contents as RegistryResponseType;
     if (data.length === 0) {
