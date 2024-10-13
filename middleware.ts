@@ -16,23 +16,28 @@ const middleware = async (request: NextRequest) => {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  const decodedToken = await decode({
-    token: sessionToken,
-    secret: process.env.NEXTAUTH_SECRET as string,
-  });
+  try {
+    const decodedToken = await decode({
+      token: sessionToken,
+      secret: process.env.NEXTAUTH_SECRET as string,
+    });
 
-  if (
-    decodedToken?.sub?.startsWith("ViewerMSP") &&
-    pathname.startsWith("/registration")
-  ) {
-    return NextResponse.redirect(new URL("/", request.url));
-  }
+    if (
+      decodedToken?.sub?.startsWith("ViewerMSP") &&
+      pathname.startsWith("/registration")
+    ) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
 
-  if (
-    decodedToken?.sub?.startsWith("RegistryMSP") &&
-    (pathname.startsWith("/issue") || pathname.startsWith("/history"))
-  ) {
-    return NextResponse.redirect(new URL("/", request.url));
+    if (
+      decodedToken?.sub?.startsWith("RegistryMSP") &&
+      (pathname.startsWith("/issue") || pathname.startsWith("/history"))
+    ) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+  } catch (error) {
+    console.error(error);
+    // return NextResponse.redirect(new URL("/", request.url));
   }
 };
 
