@@ -1,3 +1,4 @@
+import MainSection from "./_components/MainSection";
 import Navbar from "./_components/Navbar";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
               블록체인 기반 부동산 등기사항증명서 발급 시스템
             </h2>
           </div>
+          <MainSection />
         </div>
       </div>
     </main>
