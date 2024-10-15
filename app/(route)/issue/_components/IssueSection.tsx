@@ -20,7 +20,7 @@ const IssueSection = () => {
     let fullAddress = data.autoJibunAddress || data.jibunAddress;
     let extraAddress = "";
 
-    if (data.addressType === "R") {
+    if (data.addressType === "R" || data.addressType === "J") {
       if (data.buildingName !== "") {
         extraAddress = data.buildingName;
       }
