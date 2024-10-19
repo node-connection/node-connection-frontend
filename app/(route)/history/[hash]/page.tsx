@@ -2,6 +2,7 @@ import Navbar from "@/app/_components/Navbar";
 import callApi from "@/app/_utils/callApi";
 import getSessionToken from "@/app/_utils/getSessionToken";
 import { RegistryIssuanceResponseType } from "@/app/_types";
+import { redirect } from "next/navigation";
 import HistoryHashSection from "./_components/HistoryHashSection";
 import HistoryHashInfoSection from "./_components/HistoryHashInfoSection";
 
@@ -25,6 +26,10 @@ const HistoryHashPage = async ({
       hash: params.hash,
     },
   });
+
+  if (!res.success) {
+    redirect("/history");
+  }
 
   return (
     <main className="h-full w-full">
