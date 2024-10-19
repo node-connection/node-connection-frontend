@@ -2,6 +2,7 @@ import Navbar from "@/app/_components/Navbar";
 import callApi from "@/app/_utils/callApi";
 import getSessionToken from "@/app/_utils/getSessionToken";
 import { RegistryIssuanceResponseType } from "@/app/_types";
+import { redirect } from "next/navigation";
 import VerifyHashSection from "./_components/VerifyHashSection";
 import VerifyHashInfoSection from "./_components/VerifyHashInfoSection";
 
@@ -25,6 +26,10 @@ const VerifyHashPage = async ({
       hash: params.hash,
     },
   });
+
+  if (!res.success) {
+    redirect("/verify");
+  }
 
   return (
     <main className="h-full w-full">

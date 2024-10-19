@@ -1,6 +1,7 @@
 "use client";
 
 import useInput from "@/app/_hooks/useInput";
+import registryIssuance from "@/app/_services/registryIssuance";
 import { errorToast } from "@/app/_utils/notifications";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -43,6 +44,16 @@ const VerifySection = () => {
     }
     if (hash.value === "") {
       errorToast("검증 해시를 입력해주세요.");
+      return;
+    }
+
+    const res = await registryIssuance({
+      address: baseAddress,
+      hash: hash.value,
+    });
+
+    if (!res.success) {
+      errorToast("존재하지 않는 등기입니다.");
       return;
     }
 
